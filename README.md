@@ -1,4 +1,4 @@
-# Folder Renamer
+# File Renamer
 
 Folder Renamer is a simple Tkinter-based GUI application to rename files within folders to match their parent folder names while keeping the original file extension. It includes a preview window to show changes before applying them.
 
@@ -20,7 +20,7 @@ Folder Renamer is a simple Tkinter-based GUI application to rename files within 
 1. Clone this repository:
     ```bash
     git clone https://github.com/ashoover/file_renamer.git
-    cd folder-renamer
+    cd file_renamer
     ```
 
 2. Install the required packages (if any):
