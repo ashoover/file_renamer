@@ -2,11 +2,18 @@ import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
-
-class FolderRenamerApp:
+class FileRenamerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Folder Renamer")
+        self.root.title("File Renamer")
+
+        # Set dark theme colors
+        self.bg_color = '#2E2E2E'
+        self.fg_color = '#FFFFFF'
+        self.entry_bg_color = '#3A3A3A'
+        self.button_bg_color = '#4A4A4A'
+
+        self.root.configure(bg=self.bg_color)
 
         self.base_path = tk.StringVar()
 
@@ -15,20 +22,20 @@ class FolderRenamerApp:
 
     def create_widgets(self):
         # Label and Entry for folder path input
-        tk.Label(self.root, text="Select Folder:").grid(row=0, column=0, padx=10, pady=5)
-        self.folder_entry = tk.Entry(self.root, width=50, textvariable=self.base_path, state='readonly')
+        tk.Label(self.root, text="Select Folder:", bg=self.bg_color, fg=self.fg_color).grid(row=0, column=0, padx=10, pady=5)
+        self.folder_entry = tk.Entry(self.root, width=50, textvariable=self.base_path, state='readonly', bg=self.entry_bg_color, fg=self.fg_color)
         self.folder_entry.grid(row=0, column=1, padx=10, pady=5)
 
         # Button to select folder
-        self.browse_button = tk.Button(self.root, text="Browse", command=self.browse_folder)
+        self.browse_button = tk.Button(self.root, text="Browse", command=self.browse_folder, bg=self.button_bg_color, fg=self.fg_color)
         self.browse_button.grid(row=0, column=2, padx=10, pady=5)
 
         # Text widget for preview window
-        self.preview_text = tk.Text(self.root, width=80, height=15)
+        self.preview_text = tk.Text(self.root, width=80, height=15, bg=self.entry_bg_color, fg=self.fg_color)
         self.preview_text.grid(row=1, column=0, columnspan=3, padx=10, pady=5)
 
         # Button to apply changes
-        self.go_button = tk.Button(self.root, text="Go", command=self.apply_changes)
+        self.go_button = tk.Button(self.root, text="Go", command=self.apply_changes, bg=self.button_bg_color, fg=self.fg_color)
         self.go_button.grid(row=2, column=0, columnspan=3, pady=10)
 
     def browse_folder(self):
@@ -78,8 +85,7 @@ class FolderRenamerApp:
 
         messagebox.showinfo("Success", "Files have been renamed successfully.")
 
-
 if __name__ == "__main__":
     root = tk.Tk()
-    app = FolderRenamerApp(root)
+    app = FileRenamerApp(root)
     root.mainloop()
